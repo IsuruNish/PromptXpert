@@ -3,16 +3,12 @@
 import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
-import { useSearchParams } from "next/navigation";
 
 export const metadata = {
   title: "PromptXpert",
   desciption: "Discover and Share AI Prompts",
 };
 const RootLayout = ({ children }) => {
-  const searchParams = useSearchParams();
-  const actionName = searchParams.get("action");
-
   return (
     <html lang="en">
       <body>
@@ -22,8 +18,7 @@ const RootLayout = ({ children }) => {
           </div>
 
           <main className="app">
-            {!actionName && <Nav />}
-
+            <Nav />
             {children}
           </main>
         </Provider>
